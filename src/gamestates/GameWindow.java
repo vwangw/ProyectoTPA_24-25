@@ -1,3 +1,5 @@
+package gamestates;
+
 import javax.swing.*;
 
 public class GameWindow extends JFrame {

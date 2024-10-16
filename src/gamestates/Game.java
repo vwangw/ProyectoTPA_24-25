@@ -1,3 +1,5 @@
+package gamestates;
+
 public class Game implements Runnable{
 
     private GameWindow gameWindow;
