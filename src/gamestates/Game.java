@@ -8,10 +8,14 @@ public class Game implements Runnable{
     public Game(){
         gamePanel=new GamePanel(this);
         gameWindow=new GameWindow(gamePanel);
+        gamePanel.requestFocus();
     }
 
     @Override
-    public void run(){
+    public void run() {
 
+        while(true){
+            gamePanel.repaint();
+        }
     }
 }
