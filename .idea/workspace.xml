@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fda194a-96c2-4d51-ba50-4e905742079f" name="Changes" comment="Ventana del juego, y algunas clases">
-      <change afterPath="$PROJECT_DIR$/res/player_car.png" afterDir="false" />
+    <list default="true" id="9fda194a-96c2-4d51-ba50-4e905742079f" name="Changes" comment="imagen e intento de inputs">
+      <change afterPath="$PROJECT_DIR$/res/game_background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/MouseInputHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gamestates/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gamestates/Playing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gamestates/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/MenuButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TPA 24-25.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TPA 24-25.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Actor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Obstacle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/inputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/inputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/inputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/KeyInputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/GamePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/GameWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,18 +37,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "vwangw"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;vwangw&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/vwangw/ProyectoTPA_24-25",
-    "accountId": "2ad78260-d392-48bc-b7f7-8f7c79d1f791"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/vwangw/ProyectoTPA_24-25&quot;,
+    &quot;accountId&quot;: &quot;2ad78260-d392-48bc-b7f7-8f7c79d1f791&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -66,6 +72,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
@@ -80,7 +87,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="gamestates.Main" />
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="TPA 24-25" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -115,7 +122,9 @@
       <workItem from="1729062058590" duration="3954000" />
       <workItem from="1729067215862" duration="2284000" />
       <workItem from="1729074807673" duration="105000" />
-      <workItem from="1732088248080" duration="7755000" />
+      <workItem from="1732088248080" duration="8053000" />
+      <workItem from="1732271783529" duration="45000" />
+      <workItem from="1732866803347" duration="8211000" />
     </task>
     <task id="LOCAL-00001" summary="Ventana del juego">
       <option name="closed" value="true" />
@@ -141,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729069467269</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="imagen e intento de inputs">
+      <option name="closed" value="true" />
+      <created>1732096413263</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732096413263</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +178,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ventana del juego" />
     <MESSAGE value="Ventana del juego, y algunas clases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ventana del juego, y algunas clases" />
+    <MESSAGE value="imagen e intento de inputs" />
+    <option name="LAST_COMMIT_MESSAGE" value="imagen e intento de inputs" />
   </component>
 </project>

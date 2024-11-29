@@ -1,12 +1,10 @@
 package entities;
 
 public abstract class Actor {
-    protected String name;
-    protected int speed=10;
+    protected int speed;
     protected int pos = 0;
 
-    public Actor(String name, int speed){
-        this.name = name;
+    public Actor(int speed) {
         this.speed = speed;
     }
 }
