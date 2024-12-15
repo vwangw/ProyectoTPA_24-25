@@ -4,22 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fda194a-96c2-4d51-ba50-4e905742079f" name="Changes" comment="imagen e intento de inputs">
-      <change afterPath="$PROJECT_DIR$/res/game_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entities/MouseInputHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gamestates/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gamestates/Playing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gamestates/State.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/MenuButton.java" afterDir="false" />
+    <list default="true" id="9fda194a-96c2-4d51-ba50-4e905742079f" name="Changes" comment="k">
+      <change afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/KeyInputHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tile/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Actor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Obstacle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/KeyInputHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/MouseInputHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Obstacle.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/inputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/KeyInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/GamePanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/GameWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gamestates/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/Playing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamestates/State.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/MenuButton.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,23 +60,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Vicente/Documents/TPA 24-25/res",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vicente/Documents/TPA 24-25/res&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Vicente\Documents\TPA 24-25\res" />
@@ -124,7 +124,13 @@
       <workItem from="1729074807673" duration="105000" />
       <workItem from="1732088248080" duration="8053000" />
       <workItem from="1732271783529" duration="45000" />
-      <workItem from="1732866803347" duration="8211000" />
+      <workItem from="1732866803347" duration="8374000" />
+      <workItem from="1733843022104" duration="695000" />
+      <workItem from="1734048067839" duration="8000" />
+      <workItem from="1734216719845" duration="4331000" />
+      <workItem from="1734222630139" duration="1713000" />
+      <workItem from="1734282623312" duration="2236000" />
+      <workItem from="1734287279304" duration="591000" />
     </task>
     <task id="LOCAL-00001" summary="Ventana del juego">
       <option name="closed" value="true" />
@@ -158,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732096413263</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="k">
+      <option name="closed" value="true" />
+      <created>1732875468377</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732875468377</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +193,7 @@
     <MESSAGE value="Ventana del juego" />
     <MESSAGE value="Ventana del juego, y algunas clases" />
     <MESSAGE value="imagen e intento de inputs" />
-    <option name="LAST_COMMIT_MESSAGE" value="imagen e intento de inputs" />
+    <MESSAGE value="k" />
+    <option name="LAST_COMMIT_MESSAGE" value="k" />
   </component>
 </project>

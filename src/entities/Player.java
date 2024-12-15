@@ -1,40 +1,49 @@
 package entities;
 
+import main.GamePanel;
+import main.KeyInputHandler;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.Objects;
 
-public class Player extends Actor {
+public class Player extends Actor{
 
-    private BufferedImage img;
+    GamePanel gamePanel;
+    KeyInputHandler keyInputHandler;
+    BufferedImage img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player_car.png")));
 
-    public Player(int speed) {
-        super(speed);
-        importImg();
+    public Player(GamePanel gamePanel, KeyInputHandler keyInputHandler) throws IOException {
+        this.gamePanel = gamePanel;
+        this.keyInputHandler = keyInputHandler;
+
+        setDefaultValue();
     }
 
-    private void importImg() {
-        InputStream is = getClass().getResourceAsStream("/player_car.png");
-        try {
-            img = ImageIO.read(is);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void setDefaultValue(){
+
+        x = 100;
+        y = 100;
+        speed = 4;
+    }
+
+    public void update(){
+        if(keyInputHandler.leftPressed){
+            x -= speed;
+        }else if(keyInputHandler.rightPressed){
+            x += speed;
+        }
+        if(x>= gamePanel.getScreenWidth()-30){
+            x = gamePanel.getScreenWidth()-30;
+        }
+        if(x<= 0){
+            x = 0;
         }
     }
 
-    public void drawPlayer(Graphics g) {
-        g.drawImage(img, getPos(), 100, 64, 128, null);
+    public void draw(Graphics2D g2){
+        g2.drawImage(img, x, y, 30, 60, null);
     }
-
-    public void updatePos(int value) {
-        this.pos += value;
-    }
-
-    public int getPos() {
-        return pos;
-    }
-
-    public int getSpeed(){return speed;}
 }

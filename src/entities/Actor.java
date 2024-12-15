@@ -1,10 +1,10 @@
 package entities;
 
+import java.awt.image.BufferedImage;
+
 public abstract class Actor {
     protected int speed;
-    protected int pos = 0;
+    protected int x, y;
 
-    public Actor(int speed) {
-        this.speed = speed;
-    }
+    public BufferedImage img;
 }
