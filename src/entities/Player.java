@@ -24,9 +24,9 @@ public class Player extends Actor{
 
     public void setDefaultValue(){
 
-        x = 100;
-        y = 100;
-        speed = 4;
+        x = gamePanel.getScreenWidth()/2;
+        y = 500;
+        speed = 6;
     }
 
     public void update(){
