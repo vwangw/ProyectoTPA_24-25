@@ -1,10 +1,15 @@
 package main;
 
+import entities.Coin;
+import entities.Obstacle;
 import entities.Player;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Objects;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -20,13 +25,24 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     final int screenWidth = tileSize * maxScreenCol;
+
+    public int getScreenHeight() {
+        return screenHeight;
+    }
+
     final int screenHeight = tileSize * maxScreenRow;
+
+    BufferedImage img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/game_background.png")));
 
     int FPS = 60;
 
     Thread gameThread;
     KeyInputHandler keyInputHandler = new KeyInputHandler();
     Player player = new Player(this, keyInputHandler);
+    public HitboxChecker hitboxChecker = new HitboxChecker(this);
+    public Obstacle obstacle[] = new Obstacle[3];
+    public AssetSetter assetSetter = new AssetSetter(this);
+    public UI ui = new UI(this);
 
     public GamePanel() throws IOException {
 
@@ -35,6 +51,10 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyInputHandler);
         this.setFocusable(true);
+    }
+
+    public void setupGame() throws IOException {
+        assetSetter.setObject();
     }
 
     public void startGameThread(){
@@ -80,10 +100,16 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-
+        g.drawImage(img, 0, 0, screenWidth, screenHeight, null);
         Graphics2D g2 = (Graphics2D)g;
 
+        for(int i = 0; i< obstacle.length;i++){
+            if(obstacle[i] != null){
+                obstacle[i].draw(g2, this);
+            }
+        }
         player.draw(g2);
+        ui.draw(g2);
 
         g2.dispose();
     }

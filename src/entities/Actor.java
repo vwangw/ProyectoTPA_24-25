@@ -1,10 +1,19 @@
 package entities;
 
-import java.awt.image.BufferedImage;
+import java.awt.*;
 
 public abstract class Actor {
     protected int speed;
-    protected int x, y;
+    public int x, y;
+    public Rectangle hitbox;
+    public boolean collisionOn = false;
+    public String direction;
 
-    public BufferedImage img;
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
+    }
 }

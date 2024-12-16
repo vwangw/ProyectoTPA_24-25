@@ -19,6 +19,8 @@ public class Player extends Actor{
         this.gamePanel = gamePanel;
         this.keyInputHandler = keyInputHandler;
 
+        hitbox = new Rectangle(0, 0, gamePanel.tileSize, gamePanel.tileSize);
+
         setDefaultValue();
     }
 
@@ -27,12 +29,15 @@ public class Player extends Actor{
         x = gamePanel.getScreenWidth()/2;
         y = 500;
         speed = 6;
+        direction = "left";
     }
 
     public void update(){
         if(keyInputHandler.leftPressed){
+            direction = "left";
             x -= speed;
         }else if(keyInputHandler.rightPressed){
+            direction = "right";
             x += speed;
         }
         if(x>= gamePanel.getScreenWidth()-30){
@@ -40,6 +45,13 @@ public class Player extends Actor{
         }
         if(x<= 0){
             x = 0;
+        }
+
+        collisionOn = false;
+        gamePanel.hitboxChecker.checkTile(this);
+
+        if(collisionOn) {
+
         }
     }
 
