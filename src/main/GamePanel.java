@@ -37,15 +37,17 @@ public class GamePanel extends JPanel implements Runnable{
 
     Thread gameThread;
     KeyInputHandler keyInputHandler = new KeyInputHandler(this);
-    Player player = new Player(this, keyInputHandler);
+    public UI ui = new UI(this);
+    Player player = new Player(this, keyInputHandler, ui);
     public HitboxChecker hitboxChecker = new HitboxChecker(this);
     public Obstacle[] obstacle = new Obstacle[3];
     public AssetSetter assetSetter = new AssetSetter(this);
-    public UI ui = new UI(this);
 
     public int gameState;
-    public final int pauseState = 0;
+    public final int titleState = 0;
     public final int playState = 1;
+    public final int pauseState = 2;
+    public final int overState = 3;
 
     public GamePanel() throws IOException {
 
@@ -58,7 +60,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void setupGame() throws IOException {
         assetSetter.obstaclesFactory();
-        gameState = pauseState;
+        gameState = titleState;
     }
 
     public void startGameThread(){
@@ -108,8 +110,7 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
         }
-
-        if(gameState == pauseState){
+        if(gameState == pauseState && gameState == overState){
 
         }
 
@@ -120,13 +121,18 @@ public class GamePanel extends JPanel implements Runnable{
         g.drawImage(img, 0, 0, screenWidth, screenHeight, null);
         Graphics2D g2 = (Graphics2D)g;
 
-        for (Obstacle value : obstacle) {
-            if (value != null) {
-                value.draw(g2, this);
+        if (gameState == titleState) {
+            ui.draw(g2);
+
+        }else {
+            for (Obstacle value : obstacle) {
+                if (value != null) {
+                    value.draw(g2, this);
+                }
             }
+            player.draw(g2);
+            ui.draw(g2);
         }
-        player.draw(g2);
-        ui.draw(g2);
 
         g2.dispose();
     }

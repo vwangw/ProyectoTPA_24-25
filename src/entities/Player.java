@@ -2,6 +2,7 @@ package entities;
 
 import main.GamePanel;
 import main.KeyInputHandler;
+import main.UI;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -12,12 +13,15 @@ import java.util.Objects;
 public class Player extends Actor{
 
     GamePanel gamePanel;
+    UI ui;
     KeyInputHandler keyInputHandler;
     BufferedImage img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player_car.png")));
+    public int coinCount = 0;
 
-    public Player(GamePanel gamePanel, KeyInputHandler keyInputHandler) throws IOException {
+    public Player(GamePanel gamePanel, KeyInputHandler keyInputHandler, UI ui) throws IOException {
         this.gamePanel = gamePanel;
         this.keyInputHandler = keyInputHandler;
+        this.ui = ui;
 
         hitbox = new Rectangle(0, 0, gamePanel.tileSize, gamePanel.tileSize);
         hitboxDefaultX = 8;
@@ -36,10 +40,8 @@ public class Player extends Actor{
 
     public void update(){
         if(keyInputHandler.leftPressed){
-            direction = "left";
             x -= speed;
         }else if(keyInputHandler.rightPressed){
-            direction = "right";
             x += speed;
         }
         if(x>= gamePanel.getScreenWidth()-30){
@@ -52,10 +54,6 @@ public class Player extends Actor{
         collisionOn = false;
         int  ObsIndex = gamePanel.hitboxChecker.checkObstacle(this, true);
         interactObstacle(ObsIndex);
-
-        if(collisionOn) {
-
-        }
     }
 
     public void interactObstacle(int i){
@@ -64,11 +62,12 @@ public class Player extends Actor{
 
             switch(obstacleName){
                 case "Coin":
-                    System.out.println("Got a coin");
+                    coinCount++;
+                    ui.pointsCounter += 10*50;
                     gamePanel.obstacle[i] = null;
                     break;
                 case "Enemy":
-                    System.out.println("Game Over");
+                    gamePanel.gameState = gamePanel.overState;
                     break;
             }
 

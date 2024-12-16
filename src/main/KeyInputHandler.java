@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class KeyInputHandler implements KeyListener {
 
     GamePanel gamePanel;
-    public boolean upPressed, downPressed, leftPressed, rightPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed,pausePressed;
 
     public KeyInputHandler(GamePanel gamePanel){
         this.gamePanel = gamePanel;
@@ -20,6 +20,27 @@ public class KeyInputHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
+
+        if(gamePanel.gameState == gamePanel.titleState){
+            if(code == KeyEvent.VK_W){
+                gamePanel.ui.commandNum--;
+                if(gamePanel.ui.commandNum < 0){
+                    gamePanel.ui.commandNum = 1;
+                }
+            }
+            if(code == KeyEvent.VK_S){
+                gamePanel.ui.commandNum++;
+                if(gamePanel.ui.commandNum > 1){
+                    gamePanel.ui.commandNum = 0;
+                }
+            }
+            if(code == KeyEvent.VK_ENTER){
+                if(gamePanel.ui.commandNum == 0)
+                    gamePanel.gameState = gamePanel.playState;
+                if(gamePanel.ui.commandNum == 1)
+                    System.exit(0);
+            }
+        }
 
         if(code == KeyEvent.VK_W){
             upPressed = true;
