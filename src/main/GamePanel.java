@@ -100,6 +100,11 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update(){
         player.update();
+        for (Obstacle value : obstacle) {
+            if (value != null) {
+                value.update();
+            }
+        }
     }
 
     public void paintComponent(Graphics g){

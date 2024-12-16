@@ -23,7 +23,7 @@ public class Obstacle extends Actor{
     }
 
     public void update(){
-        x +=speed;
+        y +=speed;
 
         if (y > 600) {
             y = 0;
