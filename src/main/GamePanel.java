@@ -36,7 +36,7 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60;
 
     Thread gameThread;
-    KeyInputHandler keyInputHandler = new KeyInputHandler();
+    KeyInputHandler keyInputHandler = new KeyInputHandler(this);
     Player player = new Player(this, keyInputHandler);
     public HitboxChecker hitboxChecker = new HitboxChecker(this);
     public Obstacle[] obstacle = new Obstacle[3];
@@ -44,7 +44,7 @@ public class GamePanel extends JPanel implements Runnable{
     public UI ui = new UI(this);
 
     public int gameState;
-    public final int menuState = 0;
+    public final int pauseState = 0;
     public final int playState = 1;
 
     public GamePanel() throws IOException {
@@ -57,8 +57,8 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void setupGame() throws IOException {
-        assetSetter.randomPos();
-        gameState = menuState;
+        assetSetter.obstaclesFactory();
+        gameState = pauseState;
     }
 
     public void startGameThread(){
@@ -99,12 +99,20 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void update(){
-        player.update();
-        for (Obstacle value : obstacle) {
-            if (value != null) {
-                value.update();
+
+        if(gameState == playState){
+            player.update();
+            for (Obstacle value : obstacle) {
+                if (value != null) {
+                    value.update();
+                }
             }
         }
+
+        if(gameState == pauseState){
+
+        }
+
     }
 
     public void paintComponent(Graphics g){

@@ -12,5 +12,7 @@ public class Coin extends Obstacle{
         }catch(IOException e){
             e.printStackTrace();
         }
+
+        collision = true;
     }
 }

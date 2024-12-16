@@ -20,6 +20,8 @@ public class Player extends Actor{
         this.keyInputHandler = keyInputHandler;
 
         hitbox = new Rectangle(0, 0, gamePanel.tileSize, gamePanel.tileSize);
+        hitboxDefaultX = 8;
+        hitboxDefaultY = 16;
 
         setDefaultValue();
     }
@@ -48,9 +50,27 @@ public class Player extends Actor{
         }
 
         collisionOn = false;
-        gamePanel.hitboxChecker.checkTile(this);
+        int  ObsIndex = gamePanel.hitboxChecker.checkObstacle(this, true);
+        interactObstacle(ObsIndex);
 
         if(collisionOn) {
+
+        }
+    }
+
+    public void interactObstacle(int i){
+        if(i != 999){
+            String obstacleName = gamePanel.obstacle[i].name;
+
+            switch(obstacleName){
+                case "Coin":
+                    System.out.println("Got a coin");
+                    gamePanel.obstacle[i] = null;
+                    break;
+                case "Enemy":
+                    System.out.println("Game Over");
+                    break;
+            }
 
         }
     }

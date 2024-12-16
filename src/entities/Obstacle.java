@@ -13,7 +13,9 @@ public class Obstacle extends Actor{
     public boolean collision = false;
     public BufferedImage img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/enemy_car.jpg")));
     public String name;
-
+    public Rectangle hitbox = new Rectangle(0,0,48,48);
+    public int hitboxDefaultX = 0;
+    public int hitboxDefaultY = 0;
 
     public Obstacle() throws IOException {
         super();

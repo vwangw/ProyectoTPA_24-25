@@ -14,7 +14,7 @@ public class AssetSetter {
         this.gamePanel = gamePanel;
     }
 
-    public void randomPos() throws IOException {
+    public void obstaclesFactory() throws IOException {
 
         gamePanel.obstacle[0] = new Coin();
         gamePanel.obstacle[0].x = random.nextInt(gamePanel.getScreenHeight() - gamePanel.tileSize);
