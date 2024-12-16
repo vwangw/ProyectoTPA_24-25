@@ -8,24 +8,31 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class Obstacle{
+public class Obstacle extends Actor{
 
     public boolean collision = false;
-    public int worldX, worldY;
-    public BufferedImage img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/enemy_car.png")));
+    public BufferedImage img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/enemy_car.jpg")));
     public String name;
 
 
     public Obstacle() throws IOException {
         super();
+        x = (int)(Math.random() * 800);
+        y = 0;
+        speed = 5;
     }
 
     public void update(){
+        x +=speed;
 
+        if (y > 600) {
+            y = 0;
+            x = (int)(Math.random() * 800);
+        }
     }
 
     public void draw(Graphics2D g2, GamePanel gamePanel){
-        g2.drawImage(img, worldX,worldY , 30, 60, null);
+        g2.drawImage(img, x,y , 30, 60, null);
     }
 
 }

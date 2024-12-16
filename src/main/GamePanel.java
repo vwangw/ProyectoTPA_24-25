@@ -1,6 +1,5 @@
 package main;
 
-import entities.Coin;
 import entities.Obstacle;
 import entities.Player;
 
@@ -40,9 +39,13 @@ public class GamePanel extends JPanel implements Runnable{
     KeyInputHandler keyInputHandler = new KeyInputHandler();
     Player player = new Player(this, keyInputHandler);
     public HitboxChecker hitboxChecker = new HitboxChecker(this);
-    public Obstacle obstacle[] = new Obstacle[3];
+    public Obstacle[] obstacle = new Obstacle[3];
     public AssetSetter assetSetter = new AssetSetter(this);
     public UI ui = new UI(this);
+
+    public int gameState;
+    public final int menuState = 0;
+    public final int playState = 1;
 
     public GamePanel() throws IOException {
 
@@ -54,7 +57,8 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void setupGame() throws IOException {
-        assetSetter.setObject();
+        assetSetter.randomPos();
+        gameState = menuState;
     }
 
     public void startGameThread(){
@@ -103,9 +107,9 @@ public class GamePanel extends JPanel implements Runnable{
         g.drawImage(img, 0, 0, screenWidth, screenHeight, null);
         Graphics2D g2 = (Graphics2D)g;
 
-        for(int i = 0; i< obstacle.length;i++){
-            if(obstacle[i] != null){
-                obstacle[i].draw(g2, this);
+        for (Obstacle value : obstacle) {
+            if (value != null) {
+                value.draw(g2, this);
             }
         }
         player.draw(g2);
