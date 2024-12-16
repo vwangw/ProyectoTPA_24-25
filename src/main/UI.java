@@ -1,7 +1,5 @@
 package main;
 
-import entities.Player;
-
 import java.awt.*;
 
 public class UI {
