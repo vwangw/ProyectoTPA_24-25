@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class KeyInputHandler implements KeyListener {
 
     GamePanel gamePanel;
-    public boolean upPressed, downPressed, leftPressed, rightPressed,pausePressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed;
 
     public KeyInputHandler(GamePanel gamePanel){
         this.gamePanel = gamePanel;

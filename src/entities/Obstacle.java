@@ -1,7 +1,5 @@
 package entities;
 
-import main.GamePanel;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -16,6 +14,7 @@ public class Obstacle extends Actor{
     public Rectangle hitbox = new Rectangle(0,0,48,48);
     public int hitboxDefaultX = 0;
     public int hitboxDefaultY = 0;
+    public int yAux;
 
     public Obstacle() throws IOException {
         super();
@@ -33,8 +32,8 @@ public class Obstacle extends Actor{
         }
     }
 
-    public void draw(Graphics2D g2, GamePanel gamePanel){
-        g2.drawImage(img, x,y , 30, 60, null);
+    public void draw(Graphics2D g2){
+        g2.drawImage(img, x,y, 30, 60 - yAux, null);
     }
 
 }

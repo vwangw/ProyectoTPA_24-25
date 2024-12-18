@@ -7,7 +7,6 @@ public abstract class Actor {
     public int x, y;
     public Rectangle hitbox;
     public boolean collisionOn = false;
-    public String direction;
     public int hitboxDefaultX, hitboxDefaultY;
 
     public int getY() {

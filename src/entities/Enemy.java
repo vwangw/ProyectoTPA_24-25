@@ -7,6 +7,7 @@ import java.util.Objects;
 public class Enemy extends Obstacle{
     public Enemy() throws IOException {
         name = "Enemy";
+        yAux = 0;
         try{
             img = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/enemy_car.jpg")));
         }catch(IOException e){

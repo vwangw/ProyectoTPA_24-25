@@ -127,7 +127,7 @@ public class GamePanel extends JPanel implements Runnable{
         }else {
             for (Obstacle value : obstacle) {
                 if (value != null) {
-                    value.draw(g2, this);
+                    value.draw(g2);
                 }
             }
             player.draw(g2);

@@ -35,7 +35,6 @@ public class Player extends Actor{
         x = gamePanel.getScreenWidth()/2;
         y = 500;
         speed = 6;
-        direction = "left";
     }
 
     public void update(){
